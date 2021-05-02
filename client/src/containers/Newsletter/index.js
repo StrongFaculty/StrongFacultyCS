@@ -15,12 +15,15 @@ import Button from '../../components/Common/Button';
 
 class Newsletter extends React.PureComponent {
 	render() {
-		const { email, newsletterChange, subscribeToNewsletter, formErrors } = this.props;
+		const { email, newsletterChange, subscribeToNewsletter, formErrors, disabled } = this.props;
 
 		const SubscribeButton = <Button type="submit" variant="primary" text="Subscribe" />;
 
-		const handleSubmit = (event) => {
+		const handleSubmit = (event, disabled) => {
 			event.preventDefault();
+			if (!disabled) {
+				console.log('disabled', disabled);
+			}
 			subscribeToNewsletter();
 		};
 

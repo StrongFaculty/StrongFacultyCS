@@ -7,8 +7,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Recaptcha from 'react-recaptcha';
+import { connect } from 'react-redux';
 
-import Button from '../../components/Common/Button';
+import actions from '../../actions';
 import Newsletter from '../Newsletter';
 
 // import SfLogoStacked from '%PUBLIC_URL%/images/sf-logo-stacked.svg';
@@ -20,22 +21,40 @@ const UnderConsDiv = styled.div`
 `;
 
 class UnderConstruction extends React.PureComponent {
+	// State Management
+	state = {
+		human: false,
+		humanKey: '',
+		disabled: true
+	};
+
 	render() {
-		const { email, newsletterChange, subscribeToNewsletter, formErrors } = this.props;
-
-		const SubscribeButton = <Button type="submit" variant="primary" text="Subscribe" />;
-
 		const handleSubmit = (event) => {
 			event.preventDefault();
-			subscribeToNewsletter();
-		};
-		var callback = function() {
-			console.log('Done!!!!');
 		};
 
-		// specifying verify callback function
-		var verifyCallback = function(response) {
-			console.log(response);
+		const verifyCaptcha = (res) => {
+			if (res) {
+				console.log(res);
+				this.setState({ human: true, humanKey: res });
+				this.setState({ disabled: isDisabled() });
+			}
+		};
+		const isDisabled = () => {
+			if (
+				//   this.state.fullname != null &&
+				this.state.email != null &&
+				//   this.state.subject != null &&
+				//   this.state.message != null &&
+				//   this.state.fullnameError === null &&
+				// this.state.phoneError === null &&
+				//   this.state.emailError === null &&
+				//   this.state.subjectError === null &&
+				//   this.state.messageError === null &&
+				this.state.human === true
+			)
+				return false;
+			return true;
 		};
 
 		return (
@@ -47,12 +66,7 @@ class UnderConstruction extends React.PureComponent {
 					<Newsletter />
 				</div>
 				<div className="block-recaptcha">
-					<Recaptcha
-						sitekey="6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4"
-						render="explicit"
-						verifyCallback={verifyCallback}
-						onloadCallback={callback}
-					/>
+					<Recaptcha sitekey="6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4" verifyCaptcha={verifyCaptcha} />
 				</div>
 			</div>
 			// </UnderConsDiv>
@@ -60,4 +74,12 @@ class UnderConstruction extends React.PureComponent {
 	}
 }
 
-export default UnderConstruction;
+const mapStateToProps = (state) => {
+	return {
+		human: state.underconstruction.human,
+		humanKey: state.underconstruction.humanKey,
+		disabled: state.underconstruction.disabled
+	};
+};
+
+export default connect(mapStateToProps, actions)(UnderConstruction);
