@@ -31,33 +31,35 @@ import shopReducer from './containers/Shop/reducer';
 import merchantReducer from './containers/Merchant/reducer';
 import contactReducer from './containers/Contact/reducer';
 import orderReducer from './containers/Order/reducer';
+import recaptchaReducer from './containers/ReCaptcha/reducer';
 
-const createReducer = history =>
-  combineReducers({
-    router: connectRouter(history),
-    notifications,
-    applicaiton: applicationReducer,
-    homepage: homepageReducer,
-    signup: signupReducer,
-    login: loginReducer,
-    forgotPassword: forgotPasswordReducer,
-    navigation: navigationReducer,
-    authentication: authenticationReducer,
-    cart: cartReducer,
-    newsletter: newsletterReducer,
-    dashboard: dashboardReducer,
-    account: accountReducer,
-    address:addressReducer,
-    resetPassword: resetPasswordReducer,
-    users: usersReducer,
-    product: productReducer,
-    category: categoryReducer,
-    brand: brandReducer,
-    menu: navigationMenuReducer,
-    shop: shopReducer,
-    merchant: merchantReducer,
-    contact: contactReducer,
-    order: orderReducer
-  });
+const createReducer = (history) =>
+	combineReducers({
+		router: connectRouter(history),
+		notifications,
+		applicaiton: applicationReducer,
+		homepage: homepageReducer,
+		signup: signupReducer,
+		login: loginReducer,
+		forgotPassword: forgotPasswordReducer,
+		navigation: navigationReducer,
+		authentication: authenticationReducer,
+		cart: cartReducer,
+		newsletter: newsletterReducer,
+		dashboard: dashboardReducer,
+		account: accountReducer,
+		address: addressReducer,
+		resetPassword: resetPasswordReducer,
+		users: usersReducer,
+		product: productReducer,
+		category: categoryReducer,
+		brand: brandReducer,
+		menu: navigationMenuReducer,
+		shop: shopReducer,
+		merchant: merchantReducer,
+		contact: contactReducer,
+		order: orderReducer,
+		captcha: recaptchaReducer
+	});
 
 export default createReducer;

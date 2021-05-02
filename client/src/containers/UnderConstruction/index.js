@@ -6,11 +6,11 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Recaptcha from 'react-recaptcha';
-import { connect } from 'react-redux';
+// import ReCAPTCHA from 'react-google-recaptcha';
+import { useSelector } from 'react-redux';
 
-import actions from '../../actions';
 import Newsletter from '../Newsletter';
+import ReCaptcha from '../ReCaptcha';
 
 // import SfLogoStacked from '%PUBLIC_URL%/images/sf-logo-stacked.svg';
 const UnderConsDiv = styled.div`
@@ -29,6 +29,11 @@ class UnderConstruction extends React.PureComponent {
 	};
 
 	render() {
+		const captcha = useSelector((state) => state.captcha);
+		const { captcha: currentCaptcha } = captcha;
+
+		const { email, captchaValue } = this.props;
+
 		const handleSubmit = (event) => {
 			event.preventDefault();
 		};
@@ -36,8 +41,8 @@ class UnderConstruction extends React.PureComponent {
 		const verifyCaptcha = (res) => {
 			if (res) {
 				console.log(res);
-				this.setState({ human: true, humanKey: res });
-				this.setState({ disabled: isDisabled() });
+				// this.setState({ human: true, humanKey: res });
+				// this.setState({ disabled: isDisabled() });
 			}
 		};
 		const isDisabled = () => {
@@ -65,21 +70,19 @@ class UnderConstruction extends React.PureComponent {
 					<h2 className="text-center">We are building Online academy 3.0! Stay in touch!</h2>
 					<Newsletter />
 				</div>
-				<div className="block-recaptcha">
-					<Recaptcha sitekey="6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4" verifyCaptcha={verifyCaptcha} />
-				</div>
 			</div>
 			// </UnderConsDiv>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		human: state.underconstruction.human,
-		humanKey: state.underconstruction.humanKey,
-		disabled: state.underconstruction.disabled
-	};
-};
+// const mapStateToProps = (state) => {
+// 	return {
+// 		captchaValue: state.underconstruction.captchaValue
+// 		// humanKey: state.underconstruction.humanKey,
+// 		// disabled: state.underconstruction.disabled
+// 	};
+// };
 
-export default connect(mapStateToProps, actions)(UnderConstruction);
+// export default connect(mapStateToProps, actions)(UnderConstruction);
+export default UnderConstruction;
