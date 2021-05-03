@@ -1,6 +1,6 @@
 /*
  *
- * Captcha reducer
+ * ReCaptcha reducer
  *
  */
 import { SET_RECAPTCHA_SUCCESS, SET_RECAPTCHA_FAIL } from './constants';

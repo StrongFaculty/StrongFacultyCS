@@ -12,10 +12,11 @@ import actions from '../../actions';
 
 import Input from '../../components/Common/Input';
 import Button from '../../components/Common/Button';
+import ReCaptcha from '../ReCaptcha';
 
 class Newsletter extends React.PureComponent {
 	render() {
-		const { email, newsletterChange, subscribeToNewsletter, formErrors } = this.props;
+		const { email, newsletterChange, subscribeToNewsletter, formErrors, recaptcha } = this.props;
 
 		const SubscribeButton = <Button type="submit" variant="primary" text="Subscribe" />;
 
@@ -23,14 +24,8 @@ class Newsletter extends React.PureComponent {
 			event.preventDefault();
 			subscribeToNewsletter();
 		};
-		// const verifyCaptcha = (res) => {
-		// 	if (res) {
-		// 		console.log(res);
-		// 		subscribeToNewsletter();
-		// 		// this.setState({ human: true, humanKey: res });
-		// 		// this.setState({ disabled: isDisabled() });
-		// 	}
-		// };
+		console.log('recaptcha', recaptcha);
+		console.log('email', email);
 
 		return (
 			<div className="newsletter-form ">
@@ -49,6 +44,12 @@ class Newsletter extends React.PureComponent {
 							inlineElement={SubscribeButton}
 						/>
 					</div>
+					{recaptcha ? (
+						<p>...isValid...{String(recaptcha.recaptcha)}</p>
+					) : (
+						<h1>current value {String(recaptcha.recaptcha)}</h1>
+					)}
+					<ReCaptcha />
 				</form>
 			</div>
 		);
@@ -58,7 +59,8 @@ class Newsletter extends React.PureComponent {
 const mapStateToProps = (state) => {
 	return {
 		email: state.newsletter.email,
-		formErrors: state.newsletter.formErrors
+		formErrors: state.newsletter.formErrors,
+		recaptcha: state.recaptcha
 	};
 };
 
