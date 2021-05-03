@@ -59,7 +59,7 @@ const createReducer = (history) =>
 		merchant: merchantReducer,
 		contact: contactReducer,
 		order: orderReducer,
-		captcha: recaptchaReducer
+		recaptcha: recaptchaReducer
 	});
 
 export default createReducer;

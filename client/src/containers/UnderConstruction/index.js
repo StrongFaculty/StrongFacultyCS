@@ -20,61 +20,85 @@ const UnderConsDiv = styled.div`
 	}
 `;
 
-class UnderConstruction extends React.PureComponent {
-	// State Management
-	state = {
-		human: false,
-		humanKey: '',
-		disabled: true
-	};
+const UnderConstruction = () => {
+	const recaptcha = useSelector((state) => state.recaptcha);
+	console.log('recaptcha', recaptcha);
+	// working breakpoint
+	// const { captcha: currentCaptcha } = captcha;
 
-	render() {
-		const captcha = useSelector((state) => state.captcha);
-		const { captcha: currentCaptcha } = captcha;
-
-		const { email, captchaValue } = this.props;
-
-		const handleSubmit = (event) => {
-			event.preventDefault();
-		};
-
-		const verifyCaptcha = (res) => {
-			if (res) {
-				console.log(res);
-				// this.setState({ human: true, humanKey: res });
-				// this.setState({ disabled: isDisabled() });
-			}
-		};
-		const isDisabled = () => {
-			if (
-				//   this.state.fullname != null &&
-				this.state.email != null &&
-				//   this.state.subject != null &&
-				//   this.state.message != null &&
-				//   this.state.fullnameError === null &&
-				// this.state.phoneError === null &&
-				//   this.state.emailError === null &&
-				//   this.state.subjectError === null &&
-				//   this.state.messageError === null &&
-				this.state.human === true
-			)
-				return false;
-			return true;
-		};
-
-		return (
-			// <UnderConsDiv>
-			<div className="under-cons-box">
-				<img src="/images/sf-logo-stacked.svg" alt="sf-logo-stacked.svg" />
-				<div className="block-title">
-					<h2 className="text-center">We are building Online academy 3.0! Stay in touch!</h2>
-					<Newsletter />
-				</div>
+	return (
+		<div className="under-cons-box">
+			<img src="/images/sf-logo-stacked.svg" alt="sf-logo-stacked.svg" />
+			<div className="block-title">
+				<h2 className="text-center">We are building Online academy 3.0! Stay in touch!</h2>
+				<Newsletter />
+				{recaptcha ? (
+					<p>...loading...{String(recaptcha.recaptcha)}</p>
+				) : (
+					<h1>current value {String(recaptcha.recaptcha)}</h1>
+				)}
+				<ReCaptcha />
 			</div>
-			// </UnderConsDiv>
-		);
-	}
-}
+		</div>
+	);
+};
+
+// class UnderConstruction extends React.PureComponent {
+// 	// // State Management
+// 	// state = {
+// 	// 	human: false,
+// 	// 	humanKey: '',
+// 	// 	disabled: true
+// 	// };
+
+// 	render() {
+// 		const captcha = useSelector((state) => state.captcha);
+// 		const { captcha: currentCaptcha } = captcha;
+
+// 		const { email, captchaValue } = this.props;
+
+// 		const handleSubmit = (event) => {
+// 			event.preventDefault();
+// 		};
+
+// 		const verifyCaptcha = (res) => {
+// 			if (res) {
+// 				console.log(res);
+// 				// this.setState({ human: true, humanKey: res });
+// 				// this.setState({ disabled: isDisabled() });
+// 			}
+// 		};
+// 		const isDisabled = () => {
+// 			if (
+// 				//   this.state.fullname != null &&
+// 				this.state.email != null &&
+// 				//   this.state.subject != null &&
+// 				//   this.state.message != null &&
+// 				//   this.state.fullnameError === null &&
+// 				// this.state.phoneError === null &&
+// 				//   this.state.emailError === null &&
+// 				//   this.state.subjectError === null &&
+// 				//   this.state.messageError === null &&
+// 				this.state.human === true
+// 			)
+// 				return false;
+// 			return true;
+// 		};
+
+// 		return (
+// 			// <UnderConsDiv>
+// 			<div className="under-cons-box">
+// 				<img src="/images/sf-logo-stacked.svg" alt="sf-logo-stacked.svg" />
+// 				<div className="block-title">
+// 					<h2 className="text-center">We are building Online academy 3.0! Stay in touch!</h2>
+// 					<Newsletter />
+// 					<ReCaptcha />
+// 				</div>
+// 			</div>
+// 			// </UnderConsDiv>
+// 		);
+// 	}
+// }
 
 // const mapStateToProps = (state) => {
 // 	return {

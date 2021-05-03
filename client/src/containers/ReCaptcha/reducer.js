@@ -3,19 +3,19 @@
  * Captcha reducer
  *
  */
-import { SET_CAPTCHA_SUCCESS, SET_CAPTCHA_FAIL } from './constants';
+import { SET_RECAPTCHA_SUCCESS, SET_RECAPTCHA_FAIL } from './constants';
 
 const initialState = {};
 
-const captchaReducer = (state = initialState, action) => {
+const recaptchaReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SET_CAPTCHA_SUCCESS:
-			return { captcha: action.payload };
-		case SET_CAPTCHA_FAIL:
+		case SET_RECAPTCHA_SUCCESS:
+			return { recaptcha: action.payload };
+		case SET_RECAPTCHA_FAIL:
 			return { error: action.payload };
 		default:
 			return state;
 	}
 };
 
-export default captchaReducer;
+export default recaptchaReducer;
