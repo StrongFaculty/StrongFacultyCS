@@ -1,6 +1,6 @@
 import { SET_RECAPTCHA_SUCCESS, SET_RECAPTCHA_FAIL } from './constants';
 
-export const setReCaptcha = (data) => (dispatch) => {
+export const setRecaptcha = (data) => (dispatch) => {
 	try {
 		dispatch({
 			type: SET_RECAPTCHA_SUCCESS,

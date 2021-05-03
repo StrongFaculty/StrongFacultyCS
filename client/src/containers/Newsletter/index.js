@@ -24,7 +24,7 @@ class Newsletter extends React.PureComponent {
 			event.preventDefault();
 			subscribeToNewsletter();
 		};
-		console.log('recaptcha', recaptcha);
+		console.log('recaptcha', recaptcha.recaptcha);
 		console.log('email', email);
 
 		return (
