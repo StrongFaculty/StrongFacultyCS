@@ -1,9 +1,9 @@
 const config = require('../constants/config');
 const fetch = require('node-fetch');
 
-function verifyRecaptcha(recaptchaValue) {
+function verifyRecaptcha(recaptcha) {
 	const { RECAPTCHA_VERIFICATION_URL, RECAPTCHA_SECRET_KEY } = config;
-	return post(`${RECAPTCHA_VERIFICATION_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaValue}`);
+	return post(`${RECAPTCHA_VERIFICATION_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`);
 }
 
 async function post(url, data) {
