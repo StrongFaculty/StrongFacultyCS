@@ -28,33 +28,35 @@ import * as shop from './containers/Shop/actions';
 import * as merchant from './containers/Merchant/actions';
 import * as contact from './containers/Contact/actions';
 import * as order from './containers/Order/actions';
+import * as recaptcha from './containers/ReCaptcha/actions';
 
 export default function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      ...application,
-      ...authentication,
-      ...homepage,
-      ...signup,
-      ...login,
-      ...forgotPassword,
-      ...navigation,
-      ...cart,
-      ...newsletter,
-      ...dashboard,
-      ...account,
-      ...address,
-      ...resetPassword,
-      ...users,
-      ...product,
-      ...category,
-      ...brand,
-      ...menu,
-      ...shop,
-      ...merchant,
-      ...contact,
-      ...order
-    },
-    dispatch
-  );
+	return bindActionCreators(
+		{
+			...application,
+			...authentication,
+			...homepage,
+			...signup,
+			...login,
+			...forgotPassword,
+			...navigation,
+			...cart,
+			...newsletter,
+			...dashboard,
+			...account,
+			...address,
+			...resetPassword,
+			...users,
+			...product,
+			...category,
+			...brand,
+			...menu,
+			...shop,
+			...merchant,
+			...contact,
+			...order,
+			...recaptcha
+		},
+		dispatch
+	);
 }

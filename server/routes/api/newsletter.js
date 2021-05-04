@@ -7,6 +7,7 @@ const mailgun = require('../../services/mailgun');
 
 router.post('/subscribe', async (req, res) => {
 	const { email, recaptcha } = req.body;
+	console.log('server-recaptcha', recaptcha);
 
 	if (!email) {
 		return res.status(400).json({ error: 'You must enter an email address.' });

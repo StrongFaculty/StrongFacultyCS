@@ -11,6 +11,9 @@ import { NEWSLETTER_CHANGE, SET_NEWSLETTER_FORM_ERRORS, NEWSLETTER_RESET } from 
 import handleError from '../../utils/error';
 import { allFieldsValidation } from '../../utils/validation';
 
+// this has made a change, server is getting recaptcha with request
+axios.defaults.baseURL = 'http://localhost:5000/';
+
 export const newsletterChange = (name, value) => {
 	return {
 		type: NEWSLETTER_CHANGE,
@@ -42,6 +45,7 @@ export const subscribeToNewsletter = () => {
 				return dispatch({ type: SET_NEWSLETTER_FORM_ERRORS, payload: errors });
 			}
 
+			// here is problem
 			const response = await axios.post('/api/newsletter/subscribe', user);
 
 			const successfulOptions = {

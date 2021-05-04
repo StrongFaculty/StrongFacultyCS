@@ -12,17 +12,13 @@ const ReCaptcha = () => {
 
 	const handleChange = (value) => {
 		if (value) {
-			console.log('value', value);
-			// setRecaptchaValid(true);
 			setRecaptchaToken(value);
-			// console.log('RecaptchaValid', RecaptchaValid);
-			console.log('RecaptchaToken', RecaptchaToken);
+			// console.log('RecaptchaToken', RecaptchaToken);
 		} else {
 			console.log('value', value);
 			// setRecaptchaValid(false);
 			setRecaptchaToken('');
-			// console.log('RecaptchaValid', RecaptchaValid);
-			console.log('RecaptchaTo', RecaptchaToken);
+			// console.log('RecaptchaToken', RecaptchaToken);
 		}
 	};
 	useEffect(
