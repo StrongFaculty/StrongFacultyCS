@@ -1,89 +1,61 @@
 version: "3.7"
 
-x-serverbuildvars: &serverbuildvars
-  LOG_LEVEL: ${LOG_LEVEL:-notice}
-  NODE_ENV: ${NODE_ENV:-development}
-  PORT: ${SERVER_PORT:-8000}
-x-serverrunvars: &serverrunvars
-  <<: *serverbuildvars
-  SERVER_PORT: ${SERVER_PORT:-3000}
-  URL_SERVER: ${URL_SERVER:-http://server.softwareunion.localhost:3000}
-  URL_CLIENT: ${URL_API:-http://client.softwareunion.localhost:8000}
-  COOKIE_DOMAIN: ${COOKIE_DOMAIN:-.softwareunion.localhost}
-  MONGO_URL: ${MONGO_URL:-mongodb://softwareunion:secret@softwareunion-mongo:27017/softwareunion}
-  SESSION_NAME: ${SESSION_NAME:-softwareunion.localhost.sid}
-  SESSION_SECRET: ${SESSION_SECRET:-D0cK3RS3Cr3t!}
-  EMAIL_SUPPORT_FROM_ADDRESS:
-
-x-clientvars: &clientvars
-  LOG_LEVEL: ${LOG_LEVEL:-notice}
-  NODE_ENV: ${NODE_ENV:-development}
-  PORT: ${CLIENT_PORT:-3000}
-  SERVER_PORT: ${SERVER_PORT:-8000}
-  URL_CLIENT: ${URL_APP:-http://client.softwareunion.localhost:3000}
-  URL_SERVER: ${URL_SERVER:-http://softwareunion.localhost:8000}
-
-
 services:
-  softwareunion-server:
+  strongfaculty-server:
     build:
       context: server
-      args: *serverbuildvars
-    image: softwareunion-server:${COMPOSE_TAG_NAME:-stage}
-    container_name: softwareunion-server
+    image: strongfaculty-server:${COMPOSE_TAG_NAME:-stage}
+    container_name: strongfaculty-server
     networks:
       default:
         aliases:
-          - server.softwareunion.localhost
-    environment: *serverrunvars
+          - server.strongfaculty.localhost
     ports:
       - "${SERVER_PORT:-8000}:${SERVER_PORT:-8000}"
     depends_on:
-      - softwareunion-mongo
+      - strongfaculty-mongo
 
-  softwareunion-client:
+  strongfaculty-client:
     build:
       context: client
-      args: *clientvars
-    image: softwareunion-client:${COMPOSE_TAG_NAME:-stage}
-    container_name: softwareunion-client
+    image: strongfaculty-client:${COMPOSE_TAG_NAME:-stage}
+    container_name: strongfaculty-client
     networks:
       default:
         aliases:
-          - client.softwareunion.localhost
-    environment: *clientvars
+          - client.strongfaculty.localhost
     ports:
       - "${CLIENT_PORT:-3000}:${CLIENT_PORT:-3000}"
     depends_on:
-      - softwareunion-server
+      - strongfaculty-server
 
-  softwareunion-mongo:
+  strongfaculty-mongo:
     image: mongo
-    container_name: softwareunion-mongo
+    container_name: strongfaculty-mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-supersecret}
-      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-softwareunion}
-      MONGO_NON_ROOT_USERNAME: ${MONGO_NON_ROOT_USERNAME:-softwareunion}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-strongfaculty}
+      MONGO_NON_ROOT_USERNAME: ${MONGO_NON_ROOT_USERNAME:-strongfaculty}
       MONGO_NON_ROOT_PASSWORD: ${MONGO_NON_ROOT_PASSWORD:-secret}
     ports:
       - "27017:27017"
     volumes:
       # 20190601 - fix for https://github.com/docker-library/mongo/issues/329#issuecomment-460858099
       - ./mongo-user.sh:/docker-entrypoint-initdb.d/mongo-user.sh:ro
-      - /tmp/softwareunion-db:/data/db
+      - /tmp/strongfaculty-db:/data/db
 
-  softwareunion-mongoexp:
+  strongfaculty-mongoexp:
     image: mongo-express
-    container_name: softwareunion-mongoexp
+    container_name: strongfaculty-mongoexp
     environment:
-      ME_CONFIG_MONGODB_SERVER: ${ME_CONFIG_MONGODB_SERVER:-softwareunion-mongo}
+      ME_CONFIG_MONGODB_SERVER: ${ME_CONFIG_MONGODB_SERVER:-strongfaculty-mongo}
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${ME_CONFIG_MONGODB_ADMINUSERNAME:-root}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${ME_CONFIG_MONGODB_ADMINPASSWORD:-supersecret}
     ports:
       - "8081:8081"
     depends_on:
-      - softwareunion-mongo
+      - strongfaculty-mongo
 
 networks:
   default:
