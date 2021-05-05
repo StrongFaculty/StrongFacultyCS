@@ -16,7 +16,14 @@ import ReCaptcha from '../ReCaptcha';
 
 class Newsletter extends React.PureComponent {
 	render() {
-		const { email, newsletterChange, subscribeToNewsletter, formErrors, recaptchaToken } = this.props;
+		const {
+			email,
+			newsletterChange,
+			subscribeToNewsletter,
+			formErrors,
+			recaptchaToken,
+			formErrorsRecaptcha
+		} = this.props;
 
 		const SubscribeButton = <Button type="submit" variant="primary" text="Subscribe" />;
 
@@ -44,10 +51,10 @@ class Newsletter extends React.PureComponent {
 							inlineElement={SubscribeButton}
 						/>
 					</div>
-					{recaptchaToken ? (
-						<p>...isValid...{String(recaptchaToken)}</p>
+					{String(formErrorsRecaptcha) === 'Please take the recaptcha challenge before submitting!' ? (
+						<p>{String(formErrorsRecaptcha)}</p>
 					) : (
-						<h1>current value {String(recaptchaToken)}</h1>
+						<p>{String(recaptchaToken)}</p>
 					)}
 					<ReCaptcha />
 				</form>
@@ -60,6 +67,7 @@ const mapStateToProps = (state) => {
 	return {
 		email: state.newsletter.email,
 		formErrors: state.newsletter.formErrors,
+		formErrorsRecaptcha: state.newsletter.formErrors.recaptchaToken,
 		recaptchaToken: state.recaptcha.recaptchaToken
 	};
 };

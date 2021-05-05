@@ -36,7 +36,7 @@ export const subscribeToNewsletter = () => {
 			const { isValid, errors } = allFieldsValidation(user, rules, {
 				'required.email': 'Email is required.',
 				'email.email': 'Email format is invalid.',
-				'required.recaptchaToken': 'Recaptcha challenge must be valid!'
+				'required.recaptchaToken': 'Please take the recaptcha challenge before submitting!'
 			});
 
 			console.log('user.recaptchaToken', user.recaptchaToken);
