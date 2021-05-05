@@ -1,12 +1,13 @@
-const config = require('../constants/config');
+const keys = require('../config/keys');
 const fetch = require('node-fetch');
 
-function verifyRecaptcha(recaptcha) {
-	const { RECAPTCHA_VERIFICATION_URL, RECAPTCHA_SECRET_KEY } = config;
-	return post(`${RECAPTCHA_VERIFICATION_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`);
-}
+exports.verifyRecaptcha = (recaptchaToken) => {
+	const { recaptchaVerificationUrl, recaptchaSecretKey } = keys.recaptcha;
 
-async function post(url, data) {
+	return post(`${recaptchaVerificationUrl}?secret=${recaptchaSecretKey}&response=${recaptchaToken}`);
+};
+
+const post = async (url, data) => {
 	return fetch(url, {
 		method: 'POST',
 		headers: {
@@ -16,8 +17,4 @@ async function post(url, data) {
 	})
 		.then((response) => response.json().then((data) => ({ status: response.status, data })))
 		.catch((error) => ({ success: false, message: error.message }));
-}
-
-module.exports = {
-	verifyRecaptcha
 };

@@ -25,23 +25,24 @@ export const subscribeToNewsletter = () => {
 	return async (dispatch, getState) => {
 		try {
 			const rules = {
-				email: 'required|email'
-				// recaptcha: 'required|recaptcha'
+				email: 'required|email',
+				recaptchaToken: 'required'
 			};
 
 			const user = {};
 			user.email = getState().newsletter.email;
-			user.recaptcha = getState().recaptcha.recaptcha;
+			user.recaptchaToken = getState().recaptcha.recaptcha;
 
 			const { isValid, errors } = allFieldsValidation(user, rules, {
 				'required.email': 'Email is required.',
-				'email.email': 'Email format is invalid.'
-				// 'recaptcha.recaptcha': 'Recaptcha challenge must be passed.'
+				'email.email': 'Email format is invalid.',
+				'required.recaptchaToken': 'Recaptcha challenge must be valid!'
 			});
-			// this is working
-			console.log('user.recaptcha', user.recaptcha);
+
+			console.log('user.recaptchaToken', user.recaptchaToken);
 
 			if (!isValid) {
+				// this is working
 				return dispatch({ type: SET_NEWSLETTER_FORM_ERRORS, payload: errors });
 			}
 

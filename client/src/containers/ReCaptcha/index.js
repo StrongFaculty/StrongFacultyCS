@@ -7,18 +7,14 @@ import { setRecaptcha } from './actions';
 const ReCaptcha = () => {
 	const dispatch = useDispatch();
 	const SITE_KEY = '6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4';
-	// const [ RecaptchaValid, setRecaptchaValid ] = useState(false);
 	const [ RecaptchaToken, setRecaptchaToken ] = useState('');
 
 	const handleChange = (value) => {
 		if (value) {
 			setRecaptchaToken(value);
-			// console.log('RecaptchaToken', RecaptchaToken);
 		} else {
 			console.log('value', value);
-			// setRecaptchaValid(false);
 			setRecaptchaToken('');
-			// console.log('RecaptchaToken', RecaptchaToken);
 		}
 	};
 	useEffect(
