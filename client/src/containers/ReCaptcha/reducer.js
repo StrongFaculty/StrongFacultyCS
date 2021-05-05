@@ -10,7 +10,7 @@ const initialState = {};
 const recaptchaReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_RECAPTCHA_SUCCESS:
-			return { recaptcha: action.payload };
+			return { recaptchaToken: action.payload };
 		case SET_RECAPTCHA_FAIL:
 			return { error: action.payload };
 		default:

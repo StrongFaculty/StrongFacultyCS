@@ -21,9 +21,6 @@ const UnderConsDiv = styled.div`
 
 const UnderConstruction = () => {
 	// const recaptcha = useSelector((state) => state.recaptcha);
-	// const email = useSelector((state) => state.newsletter.email);
-	// console.log('recaptcha', recaptcha);
-	// console.log('email', email);
 
 	return (
 		<div className="under-cons-box">
@@ -31,12 +28,6 @@ const UnderConstruction = () => {
 			<div className="block-title">
 				<h2 className="text-center">We are building Online academy 3.0! Stay in touch!</h2>
 				<Newsletter />
-				{/* {recaptcha ? (
-					<p>...isValid...{String(recaptcha.recaptcha)}</p>
-				) : (
-					<h1>current value {String(recaptcha.recaptcha)}</h1>
-				)} */}
-				{/* <ReCaptcha /> */}
 			</div>
 		</div>
 	);

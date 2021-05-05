@@ -31,7 +31,7 @@ export const subscribeToNewsletter = () => {
 
 			const user = {};
 			user.email = getState().newsletter.email;
-			user.recaptchaToken = getState().recaptcha.recaptcha;
+			user.recaptchaToken = getState().recaptcha.recaptchaToken;
 
 			const { isValid, errors } = allFieldsValidation(user, rules, {
 				'required.email': 'Email is required.',
