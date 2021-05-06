@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setRecaptcha } from './actions';
 
 const ReCaptcha = () => {
 	const dispatch = useDispatch();
 	const SITE_KEY = '6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4';
+
 	const [ RecaptchaToken, setRecaptchaToken ] = useState('');
+
+	const recaptchaToken = useSelector((state) => state.recaptcha.recaptchaToken);
+	const formErrorsRecaptcha = useSelector((state) => state.newsletter.formErrors.recaptchaToken);
 
 	const handleChange = (value) => {
 		if (value) {
 			setRecaptchaToken(value);
 		} else {
-			console.log('value', value);
 			setRecaptchaToken('');
 		}
 	};
@@ -29,6 +32,11 @@ const ReCaptcha = () => {
 	return (
 		<div className="block-recaptcha">
 			<ReCAPTCHA sitekey={SITE_KEY} onChange={handleChange} />
+			{String(formErrorsRecaptcha) === 'Please take the recaptcha challenge before submitting!' ? (
+				<p className="form-danger">{String(formErrorsRecaptcha)}</p>
+			) : (
+				<p>{String(recaptchaToken)}</p>
+			)}
 		</div>
 	);
 };
