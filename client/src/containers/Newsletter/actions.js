@@ -10,9 +10,10 @@ import axios from 'axios';
 import { NEWSLETTER_CHANGE, SET_NEWSLETTER_FORM_ERRORS, NEWSLETTER_RESET } from './constants';
 import handleError from '../../utils/error';
 import { allFieldsValidation } from '../../utils/validation';
+import { BASE_SERVER_URL } from '../../constants';
 
 // this has made a change, server is getting recaptcha with request
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = BASE_SERVER_URL;
 
 export const newsletterChange = (name, value) => {
 	return {

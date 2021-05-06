@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { RECAPTCHA_SITE_KEY } from '../../constants';
 import { setRecaptcha } from './actions';
 
 const ReCaptcha = () => {
 	const dispatch = useDispatch();
-	const SITE_KEY = '6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4';
+
+	// const SITE_KEY = '6Ldxjr0aAAAAAKS_bt0EkLrljyHcZMpWuOsSoOw4';
 
 	const [ RecaptchaToken, setRecaptchaToken ] = useState('');
 
@@ -32,7 +34,7 @@ const ReCaptcha = () => {
 	return (
 		<div className="block-recaptcha">
 			<div className="input-box invalid">
-				<ReCAPTCHA sitekey={SITE_KEY} onChange={handleChange} />
+				<ReCAPTCHA sitekey={RECAPTCHA_SITE_KEY} onChange={handleChange} />
 				{/* {formErrorsRecaptcha === 'Please take the recaptcha challenge before submitting!' ? ( */}
 				{formErrorsRecaptcha === 'Please take the recaptcha challenge before submitting!' ? (
 					<p className="invalid-message">{formErrorsRecaptcha}</p>
