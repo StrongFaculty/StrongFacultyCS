@@ -10,8 +10,7 @@ const ReCaptcha = () => {
 
 	const [ RecaptchaToken, setRecaptchaToken ] = useState('');
 
-	const recaptchaToken = useSelector((state) => state.recaptcha.recaptchaToken);
-	const formErrorsRecaptcha = useSelector((state) => state.newsletter.formErrors.recaptchaToken);
+	const formErrorsRecaptcha = String(useSelector((state) => state.newsletter.formErrors.recaptchaToken));
 
 	const handleChange = (value) => {
 		if (value) {
@@ -20,6 +19,7 @@ const ReCaptcha = () => {
 			setRecaptchaToken('');
 		}
 	};
+
 	useEffect(
 		() => {
 			dispatch(setRecaptcha(RecaptchaToken));
@@ -31,12 +31,15 @@ const ReCaptcha = () => {
 	);
 	return (
 		<div className="block-recaptcha">
-			<ReCAPTCHA sitekey={SITE_KEY} onChange={handleChange} />
-			{String(formErrorsRecaptcha) === 'Please take the recaptcha challenge before submitting!' ? (
-				<p className="form-danger">{String(formErrorsRecaptcha)}</p>
-			) : (
-				<p>{String(recaptchaToken)}</p>
-			)}
+			<div className="input-box invalid">
+				<ReCAPTCHA sitekey={SITE_KEY} onChange={handleChange} />
+				{/* {formErrorsRecaptcha === 'Please take the recaptcha challenge before submitting!' ? ( */}
+				{formErrorsRecaptcha === 'Please take the recaptcha challenge before submitting!' ? (
+					<p className="invalid-message">{formErrorsRecaptcha}</p>
+				) : (
+					<p />
+				)}
+			</div>
 		</div>
 	);
 };

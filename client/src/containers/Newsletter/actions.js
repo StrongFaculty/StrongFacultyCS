@@ -39,14 +39,10 @@ export const subscribeToNewsletter = () => {
 				'required.recaptchaToken': 'Please take the recaptcha challenge before submitting!'
 			});
 
-			console.log('user.recaptchaToken', user.recaptchaToken);
-
 			if (!isValid) {
-				// this is working
 				return dispatch({ type: SET_NEWSLETTER_FORM_ERRORS, payload: errors });
 			}
 
-			// here is problem
 			const response = await axios.post('/api/newsletter/subscribe', user);
 
 			const successfulOptions = {
