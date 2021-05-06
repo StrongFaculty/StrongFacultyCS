@@ -17,9 +17,6 @@ import setToken from './utils/token';
 // Import application sass styles
 import './styles/style.scss';
 
-// Import semantic-ui styles
-import 'semantic-ui-css/semantic.min.css';
-
 // Import Font Awesome Icons Set
 import 'font-awesome/css/font-awesome.min.css';
 

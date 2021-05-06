@@ -56,6 +56,11 @@ body {
   }
 }
 
+.block-container{
+  margin: 0 auto 0 auto;
+  max-width: 540px;
+}
+
 img {
   border-style: none;
   vertical-align: middle;
@@ -123,31 +128,37 @@ h6,
 h1,
 .h1 {
   font-size: 2em !important;
+  font-family: $font-family-heading;
 }
 
 h2,
 .h2 {
   font-size: 1.4em !important;
+  font-family: $font-family-heading;
 }
 
 h3,
 .h3 {
   font-size: 1.27em !important;
+  font-family: $font-family-heading;
 }
 
 h4,
 .h4 {
   font-size: 1.12em !important;
+  font-family: $font-family-heading;
 }
 
 h5,
 .h5 {
   font-size: 0.83em !important;
+  font-family: $font-family-heading;
 }
 
 h6,
 .h6 {
   font-size: 0.75em !important;
+  font-family: $font-family-heading;
 }
 
 /* scrollbar styles */

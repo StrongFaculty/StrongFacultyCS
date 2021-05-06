@@ -7,7 +7,7 @@
 .subscribe {
   .inline-btn-box {
     .input-text-block {
-      @include media-breakpoint-between(md, lg) {
+      @include media-breakpoint-down(lg) {
         flex-direction: column;
 
         .input-text {

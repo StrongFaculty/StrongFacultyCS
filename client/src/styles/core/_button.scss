@@ -8,6 +8,7 @@ button[type='reset'],
 button {
   border: none;
   background: transparent;
+  font-family: $font-family-button;
   color: $font-custom-color !important;
   font-size: $font-size-small;
   font-weight: $font-weight-bold-two;

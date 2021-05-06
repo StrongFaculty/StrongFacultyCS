@@ -57,7 +57,8 @@ class Application extends React.PureComponent {
 				<Notification />
 				<main className="main">
 					<img style={styles.container} src="images/blurred-app.png" alt="" />
-					<Container>
+					{/* <Container className="container-sm" fluid="sm"> */}
+					<div className="block-container">
 						{/* <div className="wrapper"> */}
 						<Switch>
 							<Route path="/" component={UnderConstruction} />
@@ -65,7 +66,8 @@ class Application extends React.PureComponent {
 							<Route path="*" component={Page404} />
 						</Switch>
 						{/* </div> */}
-					</Container>
+					</div>
+					{/* </Container> */}
 				</main>
 			</div>
 		);
