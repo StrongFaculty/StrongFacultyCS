@@ -89,14 +89,10 @@ services:
     command: certonly --webroot --webroot-path=/var/www/html --email martin.stefko@protonmail.com --agree-tos --no-eff-email --staging -d strongfaculty.com  -d www.strongfaculty.com
 
   volumes:
-  certbot-etc:
-  certbot-var:
-  web-root:
-    driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /home/strongfaculty/StrongFacultyCS/views/
-    #   o: bind
+    certbot-etc:
+    certbot-var:
+    web-root:
+
 
 networks:
   default:
