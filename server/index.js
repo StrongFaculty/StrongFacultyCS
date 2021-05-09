@@ -16,7 +16,7 @@ const keys = require('./config/keys');
 // const webpackConfig = require('./webpack.config');
 const routes = require('./routes');
 
-const { database, port } = keys;
+const { database, port, production } = keys;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -27,15 +27,26 @@ app.use(helmet());
 
 // Connect to MongoDB
 mongoose.set('useCreateIndex', true);
-console.log('database.url', database.url);
-mongoose
-	.connect(database.url, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useFindAndModify: false
-	})
-	.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
-	.catch((err) => console.log(err));
+
+if (production === true) {
+	mongoose
+		.connect(database.urlProduction, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useFindAndModify: false
+		})
+		.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
+		.catch((err) => console.log(err));
+} else {
+	mongoose
+		.connect(database.urlLocal, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useFindAndModify: false
+		})
+		.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
+		.catch((err) => console.log(err));
+}
 
 // require('./config/passport');
 app.use(routes);

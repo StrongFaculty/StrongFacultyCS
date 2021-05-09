@@ -7,8 +7,10 @@ module.exports = {
 	},
 	port: process.env.SERVER_PORT || 5000,
 	database: {
-		url: process.env.MONGO_URI
+		urlLocal: process.env.MONGO_URI_LOCAL,
+		urlProduction: process.env.MONGO_URI_PRODUCTION
 	},
+	production: process.env.PRODUCTION,
 	jwt: {
 		secret: process.env.JWT_SECRET,
 		tokenLife: '7d'
