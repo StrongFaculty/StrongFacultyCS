@@ -1,7 +1,7 @@
 FROM node:14
 WORKDIR /server
 COPY . .
-RUN npm --verbose install
+RUN npm install --only=prod
 
 
 CMD ["npm", "start"]
