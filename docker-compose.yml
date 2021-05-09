@@ -7,9 +7,7 @@ services:
     image: strongfaculty-server:${COMPOSE_TAG_NAME:-stage}
     container_name: strongfaculty-server
     networks:
-      default:
-        aliases:
-          - strongfaculty.localhost
+      - default
     ports:
       - "${SERVER_PORT:-5000}:${SERVER_PORT:-5000}"
     depends_on:
@@ -21,9 +19,7 @@ services:
     image: strongfaculty-client:${COMPOSE_TAG_NAME:-stage}
     container_name: strongfaculty-client
     networks:
-      default:
-        aliases:
-          - strongfaculty.localhost
+      - default
     ports:
       - "${CLIENT_PORT:-3000}:${CLIENT_PORT:-3000}"
     depends_on:
@@ -64,6 +60,8 @@ services:
   strongfaculty-webserver:
     image: nginx:mainline-alpine
     container_name: strongfaculty-webserver
+    networks:
+      - default
     restart: unless-stopped
     ports:
       - "80:80"
@@ -74,12 +72,12 @@ services:
       - certbot-var:/var/lib/letsencrypt
     depends_on:
       - strongfaculty-server
-    networks:
-      - default
 
   strongfaculty-certbot:
     image: certbot/certbot
     container_name: strongfaculty-certbot
+    networks: 
+      - default
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
