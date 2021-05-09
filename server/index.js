@@ -28,25 +28,21 @@ app.use(helmet());
 // Connect to MongoDB
 mongoose.set('useCreateIndex', true);
 
+let dbUrl;
 if (production === true) {
-	mongoose
-		.connect(database.urlProduction, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false
-		})
-		.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
-		.catch((err) => console.log(err));
+	dbUrl = database.urlProduction;
 } else {
-	mongoose
-		.connect(database.urlLocal, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false
-		})
-		.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
-		.catch((err) => console.log(err));
+	dbUrl = database.urlLocal;
 }
+
+mongoose
+	.connect(dbUrl, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false
+	})
+	.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
+	.catch((err) => console.log(err));
 
 // require('./config/passport');
 app.use(routes);
