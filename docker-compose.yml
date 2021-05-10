@@ -70,7 +70,7 @@ services:
       - web-root:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
     depends_on:
       - strongfaculty-server
 
@@ -83,7 +83,6 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - web-root:/var/www/html
-      - dhparam:/etc/ssl/certs
     depends_on:
       - strongfaculty-webserver
     command: certonly --webroot --webroot-path=/var/www/html --email martin.stefko@protonmail.com --agree-tos --no-eff-email -d strongfaculty.com  -d www.strongfaculty.com
@@ -101,7 +100,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /var/www/StrongFacultyCS/dhparam
+      device: /var/www/StrongFacultyCS/dhparam/
       o: bind
 
 
