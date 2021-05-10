@@ -119,3 +119,6 @@ dist
 /git-notes.txt
 /mongo_local.txt
 /deploy_notes.txt
+
+#Diffie-Hellman
+*.pem
