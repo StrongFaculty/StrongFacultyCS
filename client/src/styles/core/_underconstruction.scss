@@ -2,10 +2,14 @@
     position:absolute;
     top: 50%;                         /* 3 */
     transform: translate(0, -50%);
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: auto!important;
+    margin-left: auto!important;
     padding-left: 36px;
     padding-right: 36px; 
+    padding-top: 72px;
+    padding-bottom: 72px;
+    padding: 72px,36px;
+    background-color: rgba(0, 0, 0, 0.6);
       img {
           width: 30rem;
           margin:0 auto 1rem auto;
@@ -20,6 +24,7 @@
       @include media-breakpoint-down(sm) {
         padding-left: 6%;
         padding-right: 6%; 
+        padding: 12% 6%;
         // h1{
         //   font-size: $font-size-heading-large!important;
         // }
