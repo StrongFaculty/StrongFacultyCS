@@ -7,17 +7,22 @@
     padding-left: 36px;
     padding-right: 36px; 
       img {
-          width: 28rem;
+          width: 30rem;
           margin:0 auto 1rem auto;
       }
       h1{
         margin:0 auto 1rem auto;
         line-height: 1!important;
+        color: $font-color-text-dark-gray !important;
       }
       @include media-breakpoint-down(sm) {
         padding-left: 6%;
         padding-right: 6%; 
+        // h1{
+        //   font-size: $font-size-heading-large!important;
+        // }
       }
+
   }
 
   
