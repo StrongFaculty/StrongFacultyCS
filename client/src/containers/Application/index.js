@@ -21,9 +21,8 @@ import Notification from '../Notification';
 import Page404 from '../../components/Common/Page404';
 
 const styles = {
-	container: {
-		width: '400rem',
-		minWidth: '90rem'
+	main: {
+		backgroundImage: `url('images/bg-image.svg')`
 	}
 };
 
@@ -55,9 +54,7 @@ class Application extends React.PureComponent {
 		return (
 			<div className="application">
 				<Notification />
-				<main className="main">
-					<img style={styles.container} src="images/blurred-app.png" alt="" />
-					{/* <Container className="container-sm" fluid="sm"> */}
+				<main className="main" style={styles.main}>
 					<div className="block-container">
 						{/* <div className="wrapper"> */}
 						<Switch>
@@ -67,7 +64,6 @@ class Application extends React.PureComponent {
 						</Switch>
 						{/* </div> */}
 					</div>
-					{/* </Container> */}
 				</main>
 			</div>
 		);

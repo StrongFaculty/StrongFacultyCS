@@ -19,6 +19,7 @@ body {
   padding: 0;
   position: relative;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
   // -webkit-font-smoothing: antialiased;
 }
 
@@ -30,12 +31,6 @@ body {
 
 main {
   flex: 1 0 auto;
-  // img
-  // &:first-child{
-  //   width: 400rem;
-	// 	min-width: 80rem;
-
-  // }
 }
 
 html {
