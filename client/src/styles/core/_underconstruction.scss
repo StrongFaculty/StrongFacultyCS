@@ -1,10 +1,11 @@
 .under-cons-box {
     position:absolute;
-    top:26%;
+    top: 50%;                         /* 3 */
+    transform: translate(0, -50%);
     margin-right: auto;
     margin-left: auto;
-    padding-left: 16px;
-    padding-right: 16px; 
+    padding-left: 40px;
+    padding-right: 40px; 
       img {
           width: 28rem;
           margin:auto;

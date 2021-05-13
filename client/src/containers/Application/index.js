@@ -20,12 +20,6 @@ import Notification from '../Notification';
 
 import Page404 from '../../components/Common/Page404';
 
-const styles = {
-	main: {
-		backgroundImage: `url('images/bg-image.svg')`
-	}
-};
-
 class Application extends React.PureComponent {
 	componentDidMount() {
 		const token = localStorage.getItem('token');
@@ -54,7 +48,7 @@ class Application extends React.PureComponent {
 		return (
 			<div className="application">
 				<Notification />
-				<main className="main" style={styles.main}>
+				<main className="main">
 					<div className="block-container">
 						{/* <div className="wrapper"> */}
 						<Switch>
