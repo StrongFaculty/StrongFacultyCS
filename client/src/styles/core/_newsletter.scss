@@ -11,17 +11,18 @@
         flex-direction: column;
 
         .input-text {
+          height: 2.9rem;
           border-radius: $border-radius-default;
           opacity: $btn-bg-hover-opacity;
         }
 
         .custom-btn-primary {
           margin-top: 10px;
-          height: 46px;
+          height: 3rem;
           border-left: $border-default-btn !important;
           border-radius: $border-radius-default !important;
           .btn-text{
-            font-size: $font-size-huge;
+            font-size: $font-size-x-huge;
           }
         }
       // }
