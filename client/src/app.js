@@ -4,13 +4,13 @@
  *
  */
 
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { CircleToBlockLoading } from 'react-loadingg';
 
 import store, { history } from './store';
 import { SET_AUTH } from './containers/Authentication/constants';
-import Application from './containers/Application';
 import ScrollToTop from './scrollToTop';
 import setToken from './utils/token';
 
@@ -25,6 +25,20 @@ import 'simple-line-icons/css/simple-line-icons.css';
 
 // react-bootstrap-table2 styles
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
+// Lazy load application
+const Application = lazy(() => import('./containers/Application'));
+
+const style = {
+	backgroundColor: '#000000',
+	minHeight: '100vh'
+};
+
+const renderLoader = () => (
+	<div style={style}>
+		<CircleToBlockLoading />
+	</div>
+);
 
 // Authentication
 const token = localStorage.getItem('token');
@@ -41,7 +55,9 @@ const app = () => (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
 			<ScrollToTop>
-				<Application />
+				<Suspense fallback={renderLoader()}>
+					<Application />
+				</Suspense>
 			</ScrollToTop>
 		</ConnectedRouter>
 	</Provider>
