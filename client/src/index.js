@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+// import App from './app';
 import reportWebVitals from './reportWebVitals';
+import { CircleToBlockLoading } from 'react-loadingg';
+
+const App = lazy(() => import('./app'));
+
+const renderLoader = () => (
+	<div className="full-width-loader">
+		<CircleToBlockLoading />
+	</div>
+);
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<Suspense fallback={renderLoader()}>
+			<App />
+		</Suspense>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

@@ -17,11 +17,16 @@
 
         .custom-btn-primary {
           margin-top: 10px;
-          height: 46px;
+          height: 42px;
           border-left: $border-default-btn !important;
           border-radius: $border-radius-default !important;
           .btn-text{
             font-size: $font-size-huge;
+          }
+          @include media-breakpoint-down(sm) {
+            .btn-text{
+              font-size: $font-size-medium;
+            }
           }
         }
       // }

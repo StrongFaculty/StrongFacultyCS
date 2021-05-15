@@ -8,7 +8,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { Container } from 'reactstrap';
+// import { Container } from 'reactstrap';
 
 import actions from '../../actions';
 

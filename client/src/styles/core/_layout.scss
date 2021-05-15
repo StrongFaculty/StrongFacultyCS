@@ -1,6 +1,7 @@
 // layout styles
 
 html {
+  background-color: $theme-white;
   overflow: visible;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -8,7 +9,7 @@ html {
 }
 
 body {
-  background-color: $white;
+  background-color: $theme-white;
   color: $font-color !important;
   font-family: $font-family-body;
   font-size: $font-size-small;
@@ -25,7 +26,7 @@ body {
 }
 
 .full-width-loader{
-  background-color: $theme-black;
+  background-color: $theme-white;
   min-height: 100vh;
 }
 

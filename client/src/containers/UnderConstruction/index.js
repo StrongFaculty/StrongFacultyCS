@@ -4,10 +4,11 @@
  *
  */
 
-import React from 'react';
+import React, { lazy } from 'react';
 // import styled from 'styled-components';
 
-import Newsletter from '../Newsletter';
+// import Newsletter from '../Newsletter';
+const Newsletter = lazy(() => import('../Newsletter'));
 // import ReCaptcha from '../ReCaptcha';
 
 // const UnderConsDiv = styled.div`
