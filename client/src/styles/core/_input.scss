@@ -6,7 +6,8 @@ input[type='file'],
 textarea {
   width: 100%;
   padding: 8px 10px;
-  border: $border-default;
+  border: none;
+  border-bottom: $border-default;
   font-size: $font-size-medium;
   color: $font-custom-color;
   border-radius: $border-radius-default;

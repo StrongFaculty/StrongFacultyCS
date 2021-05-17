@@ -23,6 +23,9 @@
           .btn-text{
             font-size: $font-size-huge;
           }
+        p {
+          text-align: center;
+        }
           @include media-breakpoint-down(sm) {
             .btn-text{
               font-size: $font-size-medium;

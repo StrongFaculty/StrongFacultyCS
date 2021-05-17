@@ -22,11 +22,11 @@ import Page404 from '../../components/Common/Page404';
 
 const styles = {
 	main: {
-		height: '100%',
-		backgroundImage: `url('/images/pexels-daria-shevtsova-3626622-tiny.jpg')`,
-		backgroundPosition: 'center',
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover'
+		height: '100%'
+		// backgroundImage: `url('/images/pexels-daria-shevtsova-3626622-tiny.jpg')`,
+		// backgroundPosition: 'center',
+		// backgroundRepeat: 'no-repeat',
+		// backgroundSize: 'cover'
 	}
 };
 
