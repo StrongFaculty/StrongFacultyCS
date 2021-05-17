@@ -20,16 +20,6 @@ import Notification from '../Notification';
 
 import Page404 from '../../components/Common/Page404';
 
-const styles = {
-	main: {
-		height: '100%'
-		// backgroundImage: `url('/images/pexels-daria-shevtsova-3626622-tiny.jpg')`,
-		// backgroundPosition: 'center',
-		// backgroundRepeat: 'no-repeat',
-		// backgroundSize: 'cover'
-	}
-};
-
 class Application extends React.PureComponent {
 	componentDidMount() {
 		const token = localStorage.getItem('token');
@@ -58,7 +48,7 @@ class Application extends React.PureComponent {
 		return (
 			<div className="application">
 				<Notification />
-				<main className="main" style={styles.main}>
+				<main className="main">
 					<div className="block-container">
 						{/* <div className="wrapper"> */}
 						<Switch>
