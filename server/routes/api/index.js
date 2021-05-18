@@ -13,40 +13,40 @@ const cartRoutes = require('./cart');
 const orderRoutes = require('./order');
 const reviewRoutes = require('./review');
 
-// auth routes
-router.use('/auth', authRoutes);
+// // auth routes
+// router.use('/auth', authRoutes);
 
-// user routes
-router.use('/user', userRoutes);
+// // user routes
+// router.use('/user', userRoutes);
 
-// address routes
-router.use('/address', addressRoutes);
+// // address routes
+// router.use('/address', addressRoutes);
 
 // newsletter routes
 router.use('/newsletter', newsletterRoutes);
 
-// product routes
-router.use('/product', productRoutes);
+// // product routes
+// router.use('/product', productRoutes);
 
-// category routes
-router.use('/category', categoryRoutes);
+// // category routes
+// router.use('/category', categoryRoutes);
 
-// brand routes
-router.use('/brand', brandRoutes);
+// // brand routes
+// router.use('/brand', brandRoutes);
 
-// contact routes
-router.use('/contact', contactRoutes);
+// // contact routes
+// router.use('/contact', contactRoutes);
 
-// merchant routes
-router.use('/merchant', merchantRoutes);
+// // merchant routes
+// router.use('/merchant', merchantRoutes);
 
-// cart routes
-router.use('/cart', cartRoutes);
+// // cart routes
+// router.use('/cart', cartRoutes);
 
-// order routes
-router.use('/order', orderRoutes);
+// // order routes
+// router.use('/order', orderRoutes);
 
-// Review routes
-router.use('/review', reviewRoutes);
+// // Review routes
+// router.use('/review', reviewRoutes);
 
 module.exports = router;
