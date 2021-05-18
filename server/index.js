@@ -29,12 +29,13 @@ app.use(helmet());
 mongoose.set('useCreateIndex', true);
 
 let dbUrl;
-if (production === true) {
+if (production) {
 	dbUrl = database.urlProduction;
 } else {
 	dbUrl = database.urlLocal;
 }
 
+console.log('dbURL', dbUrl);
 mongoose
 	.connect(dbUrl, {
 		useNewUrlParser: true,
@@ -42,6 +43,7 @@ mongoose
 		useFindAndModify: false
 	})
 	.then(() => console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`))
+	.catch((err) => console.log('Martin, it is db connection error'))
 	.catch((err) => console.log(err));
 
 // require('./config/passport');
