@@ -29,7 +29,7 @@ app.use(helmet());
 mongoose.set('useCreateIndex', true);
 
 let dbUrl;
-if (production) {
+if (production == true) {
 	dbUrl = database.urlProduction;
 } else {
 	dbUrl = database.urlLocal;

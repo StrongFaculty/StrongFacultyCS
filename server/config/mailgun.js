@@ -14,11 +14,14 @@ exports.sendEmail = (recipient, message) => {
 			subject: message.subject,
 			text: message.text
 		};
+		console.log('data :', data);
 
 		mailgun.messages().send(data, (error, body) => {
 			if (error) {
+				console.log('error :', error);
 				reject(error);
 			} else {
+				console.log('body :', body);
 				resolve(body);
 			}
 		});
