@@ -1,7 +1,6 @@
 
 
 ![StrongFaculty](/client/public/images/sf-logo.png)
-
 # Strong Faculty
 
 > Online academy 3.0. Built with 2 pillars in mind: decentralization of ecommerce and knowledge.
