@@ -16,6 +16,15 @@ textarea {
   cursor: text;
   @include appearance();
 
+  &:hover {
+    outline: none;
+    color: $font-focus-color;
+    border-color: $border-hover-color !important;
+    box-shadow: none;
+    -webkit-transition: $layout-transition-speed;
+    transition: $layout-transition-speed;
+  }
+
   &:focus {
     outline: none;
     color: $font-focus-color;
