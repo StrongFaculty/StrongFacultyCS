@@ -10,11 +10,14 @@ import axios from 'axios';
 import { NEWSLETTER_CHANGE, SET_NEWSLETTER_FORM_ERRORS, NEWSLETTER_RESET } from './constants';
 import handleError from '../../utils/error';
 import { allFieldsValidation } from '../../utils/validation';
-import { PRODUCTION_SERVER_URL, BASE_SERVER_URL, PRODUCTION } from '../../constants';
+import { PRODUCTION_SERVER_URL, BASE_SERVER_URL, NODE_ENV } from '../../constants';
 
 let serverUrl;
-if (PRODUCTION === true) {
+
+if (NODE_ENV === 'production') {
 	serverUrl = PRODUCTION_SERVER_URL;
+} else if (NODE_ENV === 'development') {
+	serverUrl = BASE_SERVER_URL;
 } else {
 	serverUrl = BASE_SERVER_URL;
 }

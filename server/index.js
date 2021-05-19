@@ -16,7 +16,7 @@ const keys = require('./config/keys');
 // const webpackConfig = require('./webpack.config');
 const routes = require('./routes');
 
-const { database, port, production } = keys;
+const { database, port, nodeEnv } = keys;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -29,8 +29,10 @@ app.use(helmet());
 mongoose.set('useCreateIndex', true);
 
 let dbUrl;
-if (production == true) {
+if (nodeEnv === 'production') {
 	dbUrl = database.urlProduction;
+} else if (nodeEnv === 'development') {
+	dbUrl = database.urlLocal;
 } else {
 	dbUrl = database.urlLocal;
 }

@@ -12,7 +12,7 @@ module.exports = {
 		urlLocal: process.env.MONGO_URI_LOCAL,
 		urlProduction: process.env.MONGO_URI_PRODUCTION
 	},
-	production: process.env.PRODUCTION,
+	nodeEnv: process.env.NODE_ENV,
 	jwt: {
 		secret: process.env.JWT_SECRET,
 		tokenLife: '7d'
