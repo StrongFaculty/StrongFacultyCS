@@ -34,6 +34,7 @@
     "react-bootstrap-table-next": "^3.1.5",
     "react-bootstrap-table2-toolkit": "^2.0.1",
     "react-dom": "^17.0.2",
+    "react-github-corner": "^2.5.0",
     "react-google-recaptcha": "^2.1.0",
     "react-loadingg": "^1.7.2",
     "react-multi-carousel": "^2.5.5",
