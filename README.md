@@ -1,26 +1,25 @@
 
 # Strong Faculty
 
-> Online academy 3.0. Builded with 2 pillars in mind: decentralization of ecommerce and knowledge.
+> Online academy 3.0. Built with 2 pillars in mind: decentralization of ecommerce and knowledge.
 
 
 ![StrongFaculty](/client/public/images/sf-logo.png)
 
 
-## Installation
+## Local installation 
 
-Local
 Ubuntu/Debian:
 
 ```sh
 sudo apt update
-git clone 
-cd /StrongFacultyCS
+git clone https://github.com/StrongFaculty/StrongFacultyCS.git
 ```
 
 Install docker and docker-compose
 
 ```sh
+cd /StrongFacultyCS
 bash docker-install.sh
 ```
 
@@ -38,7 +37,7 @@ Start the app and go to the http://localhost:3000/.
 ## Release History
 
 * 0.0.1
-    * Newsletter + Recaptcha component with redux and react hooks, production grade docker-compose setup of 6 containers (client,server,mongo,mongo-express,nginx,certbot) 
+    * Newsletter + Recaptcha component with Redux and React Hooks (Client + Server validation), production grade Docker-Compose setup of 6 containers (Client, Server, Mongo, Mongo-Express, Nginx, Certbot) 
 
 
 ## Meta
