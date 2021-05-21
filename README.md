@@ -71,6 +71,23 @@ RECAPTCHA_VERIFICATION_URL=https://www.google.com/recaptcha/api/siteverify
 RECAPTCHA_SECRET_KEY=
 ```
 
+Replace NODE_ENV='production' in constants.js with 'development' and RECAPTCHA_SITE_KEY with your site key.
+
+```sh
+cd /StrongFacultyCS/client/src/
+nano constants.js
+```
+
+```sh
+export const BASE_API_URL = 'api';
+export const RECAPTCHA_SITE_KEY = '<your_site_key>';
+export const BASE_CLIENT_URL = 'http://localhost:3000';
+export const BASE_SERVER_URL = 'http://localhost:5000';
+export const PRODUCTION_CLIENT_URL = 'https://strongfaculty.com';
+export const PRODUCTION_SERVER_URL = 'https://strongfaculty.com';
+export const NODE_ENV = 'development';
+```
+
 Start the app
 
 ```sh
