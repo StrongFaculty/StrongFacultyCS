@@ -34,7 +34,9 @@ Paste this skeleton to server's .env file and fill the fields
 
 ```sh
 nano .env
+```
 
+```sh
 SERVER_PORT=5000
 CLIENT_PORT=3000
 MONGO_PORT=27017
